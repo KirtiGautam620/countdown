@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countdown</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to right, #f40909, #f8746f);
+
+        }
+        p{
+            height: 100px;
+            width: 500px;
+            background-image: linear-gradient(to right, #d91313, #f4822a); 
+            color: white;
+            line-height: 100px;
+            text-align: center;
+            font-size: 50px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>COUNTDOWN BEGINS</h1>
+        <p id="demo"></p>
+    </div>
+    <script>
+        var dest=new Date('Feb 10, 2025  22:00:00').getTime();
+        var x=setInterval(function(){
+        var now=new Date().getTime();
+        var diff=dest-now;
+        var hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+        console.log(hours)
+        var minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+        console.log(minutes);
+        var seconds=Math.floor(diff%(1000*60)/1000);
+        console.log(seconds);
+        document.getElementById('demo').innerHTML=hours+"hrs: "+minutes+"m: "+seconds+"s";
+    },1000);
+    </script>
+   
+</body>
+</html>
